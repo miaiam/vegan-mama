@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "Couscous-Salat",
+    "title": "Couscous Salat",
+    "img": "https://img.chefkoch-cdn.de/rezepte/562321154438233/bilder/1622425/crop-960x640/couscous-salat-lecker-wuerzig.jpg",
+    "time": "25"
+  },
+  {
+    "slug": "Cremige Süßkartoffelsuppe",
+    "title": "Cremige Süßkartoffelsuppe",
+    "img": "https://biancazapatka.com/wp-content/uploads/2021/11/vegan-sweet-potato-soup.jpg",
+    "time": "35"
+  },
+  {
+    "slug": "Indisches Rotes Linsen Dal",
+    "title": "Indisches Rotes Linsen Dal",
+    "img": "https://biancazapatka.com/wp-content/uploads/2020/09/lentil-dahl-indian-curry.jpg",
+    "time": "25"
+  },
+  {
+    "slug": "Käse-Lauch-Suppe mit Hack",
+    "title": "Käse Lauch Suppe mit Hack",
+    "img": "https://assets.zuckerjagdwurst.com/cdn-cgi/image/width=1200,height=1200,quality=85,format=auto,fit=cover/assets/9ebf1c03-1f3e-568d-9c1d-9f6028b0a907/de/cc968e2c-0cf8-5f10-8fe6-b5eb4eaab713.jpg",
+    "time": "40"
+  },
+  {
+    "slug": "Linsensuppe mit Räuchertofu",
+    "title": "Linsensuppe mit Räuchertofu",
+    "img": "https://veggie-einhorn.de/wp-content/uploads/vegane-linsensuppe-raeuchertofu.jpg",
+    "time": "75"
+  },
+  {
+    "slug": "Nudel-Schinken-Gratin mit Brokkoli",
+    "title": "Nudel Schinken Gratin mit Brokkoli",
+    "img": "https://assets.zuckerjagdwurst.com/cdn-cgi/image/width=1200,height=1200,quality=85,format=auto,fit=cover/assets/56572be6-cee0-5345-b38f-4fc5f08ec840/de/79b3f553-7004-56fb-b300-7a95f7160694.jpg",
+    "time": "55"
+  },
+  {
+    "slug": "One-Pot-Risoni mit Brokkoli",
+    "title": "One Pot Risoni mit Brokkoli",
+    "img": null,
+    "time": "15"
+  },
+  {
+    "slug": "Pikante vegane Thai-Suppe",
+    "title": "Pikante vegane Thai Suppe",
+    "img": "https://img.chefkoch-cdn.de/rezepte/3886201591525396/bilder/1422706/crop-960x640/pikante-vegane-thai-suppe.jpg",
+    "time": "30"
+  },
+  {
+    "slug": "Tofu Tikka Masala",
+    "title": "Tofu Tikka Masala",
+    "img": "https://biancazapatka.com/wp-content/uploads/2021/10/vegan-tikka-masala-500x500.jpg",
+    "time": "30"
+  },
+  {
+    "slug": "Vegane Hefeschmelz-Sauce",
+    "title": "Vegane Hefeschmelz Sauce",
+    "img": "https://rezepte-images.utopia.de/BIirRXO15ZjyLmoPt-A1NY8Y41TfOVjNHvNEBf86yrU/rs:fill:1280:720:1/plain/2025/07/hefeschmelz-cc0-pixabay-hans-200316.jpg",
+    "time": "10"
+  }
+]

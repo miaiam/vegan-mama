@@ -1,1 +1,5 @@
-# vegan-mama
+<!-- # vegan-mama -->
+---
+title: Heading
+---
+# {{ title }}

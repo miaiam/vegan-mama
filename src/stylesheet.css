@@ -1,0 +1,78 @@
+:root {
+    --ink:#20221e;
+    --paper:#f7f0de;
+    --cream:#fffaf0; 
+    --tomato:#e64d32;
+    --green:#356b4c;
+    --lime:#b8d55b;
+    --yellow:#f5c84b;
+    --line:2px solid var(--ink);
+    --shadow:5px 5px 0 var(--ink);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+    margin:0;
+    color:var(--ink);
+    background:var(--paper);
+    font-family:"Space Grotesk",
+    sans-serif;
+    overflow-x:hidden;
+}
+h1,h2,h3,p { margin-top:0; }
+section h2 {
+    max-width:590px;
+    margin-bottom:0;
+    font:900 clamp(42px,5vw,66px)/.92 Fraunces,Georgia,serif;
+    letter-spacing:-.045em;
+    margin-bottom: 38px;
+}
+.wrap{ width:min(1160px,calc(100% - 40px)); margin:auto; }
+section { padding:105px 0; }
+.recipe-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:21px; }
+section a { display: block; text-decoration: none; color:inherit}
+.recipe-card { background:var(--cream); border:var(--line); box-shadow:5px 5px 0 var(--ink); transition:transform .2s; }
+.recipe-card:hover { transform:translateY(-6px) rotate(-.5deg); }
+.recipe-image { display:block; width:100%; height:220px; object-fit:cover; border-bottom:var(--line); }
+.recipe-info { padding:20px 19px 21px; }
+.recipe-time { color:var(--tomato); font:500 10px "DM Mono",monospace; text-transform:uppercase; letter-spacing:.08em; text-transform:uppercase; }
+.recipe-info h3 { margin:9px 0 8px; font:900 29px/1 Fraunces,Georgia,serif; }
+.products { background:var(--green); color:var(--cream); border-top:var(--line); border-bottom:var(--line); }
+.products .section-heading h2 { color:var(--cream); }
+.product-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; }
+.product { padding:17px; transition:transform 0.2s; border:var(--line); color:var(--ink); display:flex; flex-direction:column; justify-content:space-between; transform: rotate(random(-1.5deg, 2deg)); }
+.product:hover{transform: scale(1.05);}
+.product h3 { margin:7px 0; font:900 25px/1 Fraunces,Georgia,serif; }
+@media (max-width:780px) { .wrap { width:min(100% - 28px,600px); } nav { gap:11px; } nav a:nth-child(2) { display:none; } .hero { padding:55px 0 75px; } .hero-grid { display:block; } h1 { font-size:clamp(58px,18vw,95px); } .hero-art { min-height:350px; margin-top:56px; } .hero-photo { height:350px; width:88%; } .section-heading { display:block; } .section-heading p { margin-top:18px; } section { padding:75px 0; } .recipe-grid { grid-template-columns:1fr; } .product-grid { grid-template-columns:repeat(2,1fr); gap:10px; } footer .wrap { display:block; line-height:1.8; } }
+
+.recipe-hero { padding:50px 10px; }
+.hero-grid { display:grid; grid-template-columns:1fr 1.08fr; gap:76px; align-items:center; }
+.hero-image-wrap { position:relative; }
+.hero-image { display:block; width:100%; height:520px; border:var(--line); object-fit:cover; transform:rotate(-2.5deg); box-shadow:9px 9px 0 var(--green); filter:saturate(.95); }
+h1 { margin:22px 0 20px; font:900 clamp(56px,7vw,70px)/.98 Fraunces,Georgia,serif; letter-spacing:-.04em; }
+.recipe-meta { display:flex; flex-wrap:wrap; gap:9px; margin:28px 0 30px; }
+.meta-item { padding:10px 12px 8px; border:var(--line); background:var(--cream); font:500 11px "DM Mono",monospace; text-transform:uppercase; }
+.meta-item strong { display:block; margin-top:4px; font:700 16px "Space Grotesk",sans-serif; text-transform:none; }
+
+.recipe-nav{padding: 20px;}
+.detail { padding:96px 0 112px; }
+.detail-grid { display:grid; grid-template-columns:.77fr 1.23fr; gap:80px; align-items:start; }
+.panel { padding:26px; border:var(--line); background:var(--cream); box-shadow:var(--shadow); }
+.method h2 { margin:0 0 22px; font:900 39px/.95 Fraunces,Georgia,serif; letter-spacing:-.04em; }
+.panel ul { margin:0; padding:0; list-style:none; }
+.panel ul li { display:flex; justify-content:space-between; gap:16px; padding:7px 0; border-bottom:1px dashed  #c9c0ac; font-size:16px; line-height:1.35; }
+.panel ul li:last-child { border-bottom:0; }
+.quantity { color:var(--green); font:500 14px "DM Mono",monospace; white-space:nowrap; }
+.step { display:grid; grid-template-columns:57px 1fr; gap:17px; padding:22px 0; border-top:var(--line); }
+.step:first-of-type { border: none; padding-top: 0px; }
+.step-number { width:47px; height:47px; display:grid; place-items:center; border:var(--line); background:var(--lime); border-radius:50%; font:700 14px "DM Mono",monospace; transform:rotate(random(-7deg, 6deg)); }
+.step p { margin:0; max-width:520px; font-size:16px; line-height:1.5; }
+.tip { margin-top:22px; padding:20px 21px; border:var(--line); background:var(--yellow); transform:rotate(1deg); }
+.tip strong { display:block; margin-bottom:7px; font:900 22px Fraunces,Georgia,serif; }
+.tip p { margin:0; font-size:14px; line-height:1.45; }
+.button { display:inline-flex; align-items:center; justify-content:center; min-height:38px; padding:0 15px; border:var(--line); box-shadow:var(--shadow); background:var(--tomato); color:var(--cream); font:700 13px "DM Mono",monospace; text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:transform .15s,box-shadow .15s; } .button:hover { transform:translate(3px,3px); box-shadow:2px 2px 0 var(--ink); }
+
+.source-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+
+@media (max-width:780px) { .wrap { width:min(100% - 28px,600px); } .topbar nav { gap:11px; } .topbar nav a:nth-child(2) { display:none; } .recipe-hero { padding:52px 0 76px; } .hero-grid { display:flex; flex-direction:column-reverse; gap:62px; align-items:stretch; } .hero-image { height:370px; width:91%; } .sticker-one { right:-7px; } .sticker-two { left:-8px; } h1 { font-size:clamp(56px,17vw,88px); } .button.alt { margin-left:6px; } .detail { padding:76px 0 90px; } .detail-grid { grid-template-columns:1fr; gap:62px; } .panel { padding:20px; } .section-heading h2, .method h2 { font-size:36px; } footer .wrap { display:block; line-height:1.8; } }
+@media (max-width:430px) { .source-grid { grid-template-columns:1fr; } .hero-buttons { align-items:stretch; flex-direction:column; } .button.alt { margin:0; } .recipe-meta { display:grid; grid-template-columns:1fr 1fr; } .meta-item { min-width:0; } }
