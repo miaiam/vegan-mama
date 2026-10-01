@@ -78,21 +78,21 @@ class RecipeRenderer {
     return ingredientsWrapper;
   }
 
-  private renderImage(): HTMLElement {
-    const imageSrc = this.parsedRecipe.metadata.images;
-    const heroImage = document.createElement("div");
-    if (!imageSrc) return heroImage;
-    const imageUrl = imageSrc.includes("https") ? imageSrc : `${import.meta.env.BASE_URL}recipes/${imageSrc}`;
-    heroImage.className = "recipe-image";
-    heroImage.style.backgroundImage = `url('${imageUrl}')`;
-    return heroImage;
-  }
+  // private renderImage(): HTMLElement {
+  //   const imageSrc = this.parsedRecipe.metadata.images;
+  //   const heroImage = document.createElement("div");
+  //   if (!imageSrc) return heroImage;
+  //   const imageUrl = imageSrc.includes("https") ? imageSrc : `${import.meta.env.BASE_URL}recipes/${imageSrc}`;
+  //   heroImage.className = "recipe-image";
+  //   heroImage.style.backgroundImage = `url('${imageUrl}')`;
+  //   return heroImage;
+  // }
 
-  private renderTitle(): HTMLElement {
-    const title = document.createElement("h1");
-    title.innerText = this.parsedRecipe.metadata.title || "";
-    return title;
-  }
+  // private renderTitle(): HTMLElement {
+  //   const title = document.createElement("h1");
+  //   title.innerText = this.parsedRecipe.metadata.title || "";
+  //   return title;
+  // }
 
   private renderHero(): HTMLElement {
 
@@ -150,27 +150,27 @@ class RecipeRenderer {
     return section;
   }
 
-  private renderMetadata(): HTMLElement{
-    const metadata = document.createElement("div");
-    metadata.className = "metadata";
+  // private renderMetadata(): HTMLElement{
+  //   const metadata = document.createElement("div");
+  //   metadata.className = "metadata";
 
-    const time = this.parsedRecipe.metadata.time;
-    let totalTime = "";
+  //   const time = this.parsedRecipe.metadata.time;
+  //   let totalTime = "";
 
-    if(typeof(time) === 'number'){
-        totalTime = time.toString();
-    } else {
-        const cookTime = time?.cook_time || 0;
-        const prepTime = time?.prep_time || 0;
-        totalTime = (cookTime + prepTime).toString();
-    }
+  //   if(typeof(time) === 'number'){
+  //       totalTime = time.toString();
+  //   } else {
+  //       const cookTime = time?.cook_time || 0;
+  //       const prepTime = time?.prep_time || 0;
+  //       totalTime = (cookTime + prepTime).toString();
+  //   }
 
-    metadata.innerHTML = `
-        <div><span class="key">Portionen:</span> ${this.parsedRecipe.metadata.servings}</div>
-        <div><span class="key">Gesamtzeit:</span> ${totalTime} Minuten</div>
-    `
-    return metadata;
-  }
+  //   metadata.innerHTML = `
+  //       <div><span class="key">Portionen:</span> ${this.parsedRecipe.metadata.servings}</div>
+  //       <div><span class="key">Gesamtzeit:</span> ${totalTime} Minuten</div>
+  //   `
+  //   return metadata;
+  // }
 
   private renderSteps(sections: Section[]): HTMLElement {
     const stepsWrapper = document.createElement('div');
