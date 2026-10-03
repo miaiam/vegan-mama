@@ -6,9 +6,9 @@ const docsDir = './public/recipes';
 const outputFile = './public/recipes.json';
 
 // Read all markdown files in the directory
-const files = fs.readdirSync(docsDir).filter(file => file.endsWith('cook'));
+const files = fs.readdirSync(docsDir).filter((file: string) => file.endsWith('cook'));
 
-const recipes = files.map(file => {
+const recipes = files.map((file: string) => {
   const slug = file.replace('.cook', '');
   // Capitalize slug words for a fallback title
   const title = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -16,6 +16,12 @@ const recipes = files.map(file => {
   const parsedRecipe = new Parser().parse(rawRecipe);
 
   const time = parsedRecipe.metadata.time;
+  const image = parsedRecipe.metadata.images;
+  const img = typeof image === 'string'
+    && !/^(?:[a-z][a-z\d+.-]*:|\/)/i.test(image)
+    && !image.startsWith('recipes/')
+    ? path.posix.join('recipes', image)
+    : image;
   let totalTime = "";
 
   if(typeof(time) === 'number'){
@@ -29,7 +35,7 @@ const recipes = files.map(file => {
   return {
     slug,
     title,
-    img: parsedRecipe.metadata.images,
+    img,
     time: totalTime
   };
 });

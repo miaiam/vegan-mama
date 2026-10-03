@@ -1,104 +1,3 @@
-// import './style.css'
-// import heroImg from './assets/hero.png'
-// import typescriptLogo from './assets/typescript.svg'
-// import viteLogo from './assets/vite.svg'
-// import { setupCounter } from './counter.ts'
-
-// document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-// <section id="center">
-//   <div class="hero">
-//     <img src="${heroImg}" class="base" width="170" height="179">
-//     <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-//     <img src="${viteLogo}" class="vite" alt="Vite logo" />
-//   </div>
-//   <div>
-//     <h1>Get started</h1>
-//     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-//   </div>
-//   <button id="counter" type="button" class="counter"></button>
-// </section>
-
-// <div class="ticks"></div>
-
-// <section id="next-steps">
-//   <div id="docs">
-//     <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-//     <h2>Documentation</h2>
-//     <p>Your questions, answered</p>
-//     <ul>
-//       <li>
-//         <a href="https://vite.dev/" target="_blank">
-//           <img class="logo" src="${viteLogo}" alt="" />
-//           Explore Vite
-//         </a>
-//       </li>
-//       <li>
-//         <a href="https://www.typescriptlang.org" target="_blank">
-//           <img class="button-icon" src="${typescriptLogo}" alt="">
-//           Learn more
-//         </a>
-//       </li>
-//     </ul>
-//   </div>
-//   <div id="social">
-//     <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-//     <h2>Connect with us</h2>
-//     <p>Join the Vite community</p>
-//     <ul>
-//       <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-//       <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-//       <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-//       <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-//     </ul>
-//   </div>
-// </section>
-
-// <div class="ticks"></div>
-// <section id="spacer"></section>
-// `
-
-// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
-
-// src/main.ts
-
-// 1. Gather all markdown files from the recipes folder as raw text strings
-// const recipeModules = import.meta.glob('./recipes/*.cook', { query: '?raw', eager: false });
-
-// async function loadRecipes() {
-//   const recipeContainer = document.getElementById('recipe-container');
-//   if (!recipeContainer) return;
-
-//   // 2. Loop through each matched file path
-//   for (const path in recipeModules) {
-//     // Dynamically import the text content of the markdown file
-//     const fileContent = (await recipeModules[path]()) as unknown as { default: string };
-//     const rawMarkdown = fileContent.default;
-
-//     // Extract a cleaner title from the path (e.g., "./recipes/lasagna.md" -> "lasagna")
-//     const recipeName = path.split('/').pop()?.replace('.cook', '') || 'Recipe';
-
-//     // 3. Create HTML elements to display the content
-//     const recipeSection = document.createElement('div');
-//     recipeSection.className = 'recipe-card';
-
-// //     const htmlContent = await marked.parse(rawMarkdown);
-// // recipeSection.innerHTML = `
-// //   <article class="recipe">
-// //     ${htmlContent}
-// //   </article>
-// // `;
-    
-//     recipeSection.innerHTML = `
-//       <h2>${recipeName.toUpperCase()}</h2>
-//       <!-- For a production site, parse 'rawMarkdown' using a library like 'marked' -->
-//       <pre>${rawMarkdown}</pre> 
-//     `;
-
-//     recipeContainer.appendChild(recipeSection);
-//   }
-// }
-
 // loadRecipes();
 import { renderRecipe } from './render-recipe.ts';
 // 1. Alle Markdown-Dateien als Raw-Text einlesen
@@ -110,7 +9,7 @@ const getRecipeSlug = (path: string) => path.split('/').pop()?.replace('.cook', 
 interface Recipe {
   slug: string;
   title: string;
-  img: string;
+  img: string | null;
   time: string;
 }
 
@@ -153,7 +52,7 @@ function renderRecipeList(container: HTMLDivElement, recipes: Recipe[]): void {
   const listHtml =  recipes.map(recipe => `
     <a href="?recipe=${recipe.slug}">
       <article class="recipe-card" data-kind="quick">
-        <img class="recipe-image" src=${recipe.img}>
+        ${recipe.img ? `<img class="recipe-image" src="${getRecipeImageUrl(recipe.img)}">` : ''}
         <div class="recipe-info">
           <span class="recipe-time">${recipe.time} min</span>
           <h3>${recipe.title}</h3>
@@ -175,6 +74,12 @@ function renderRecipeList(container: HTMLDivElement, recipes: Recipe[]): void {
   `
 
   container.appendChild(section);
+}
+
+function getRecipeImageUrl(image: string): string {
+  return /^(?:[a-z][a-z\d+.-]*:|\/)/i.test(image)
+    ? image
+    : `${import.meta.env.BASE_URL}${image}`;
 }
 
 function renderProductList(container: HTMLDivElement, products: Product[]): void {

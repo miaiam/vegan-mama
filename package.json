@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node generate-index.ts && vite",
-    "build": "node generate-index.ts && tsc && vite build",
+    "dev": "node src/generate-index.ts && vite",
+    "build": "node src/generate-index.ts && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/node": "^26.6.2",
+    "@types/node": "^26.6.4",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
   },
