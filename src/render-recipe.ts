@@ -181,18 +181,20 @@ class RecipeRenderer {
       const sectionHeader = document.createElement('h3');
       sectionHeader.textContent = section.name;
       stepsWrapper.appendChild(sectionHeader);
-
       section.content.forEach((step, index) => {
-        const listItem = document.createElement('div');
-        listItem.className = 'step';
-        const stepNumber = document.createElement('div');
-        stepNumber.classList = "step-number";
-        stepNumber.innerText = (index + 1).toString().padStart(2, "0");
-        listItem.appendChild(stepNumber);
-        const content = document.createElement('p');
         if (step.type === 'text') {
-          content.textContent = step.value;
+          const tipp = document.createElement('div');
+          tipp.className = 'tip';
+          tipp.innerHTML = `<strong>Tipp</strong><p>${step.value}</p>`;
+          stepsWrapper.appendChild(tipp);
         } else if (step.type === 'step') {
+          const listItem = document.createElement('div');
+          listItem.className = 'step';
+          const stepNumber = document.createElement('div');
+          stepNumber.classList = "step-number";
+          stepNumber.innerText = (index + 1).toString().padStart(2, "0");
+          listItem.appendChild(stepNumber);
+          const content = document.createElement('p');
           const stepText = step.value.items.map((item: any) => {
             if (item.type === 'text') return item.value;
             if (item.type === 'ingredient') return ingredient_display_name(this.parsedRecipe.recipe.ingredients[item.index]);
@@ -204,21 +206,11 @@ class RecipeRenderer {
             return '';
           }).join('');
           content.textContent = stepText;
+          listItem.appendChild(content);
+          stepsWrapper.appendChild(listItem);
         }
-        listItem.appendChild(content);
-        stepsWrapper.appendChild(listItem);
       });
     });
-
-    const description = this.parsedRecipe.metadata.description;
-    if (description) {
-      const tip = document.createElement('div');
-      tip.className = 'tip';
-      tip.innerHTML = `
-        <strong>Tipp</strong><p>${description}</p>
-      `;
-      stepsWrapper.appendChild(tip);
-    }
 
     const source = this.parsedRecipe.metadata.source;
     if (source?.name || source?.url) {
