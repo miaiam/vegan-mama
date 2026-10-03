@@ -215,9 +215,29 @@ class RecipeRenderer {
       const tip = document.createElement('div');
       tip.className = 'tip';
       tip.innerHTML = `
-        <p>${description}</p>
+        <strong>Tipp</strong><p>${description}</p>
       `;
       stepsWrapper.appendChild(tip);
+    }
+
+    const source = this.parsedRecipe.metadata.source;
+    if (source?.name || source?.url) {
+      const sourceAttribution = document.createElement('p');
+      sourceAttribution.className = 'recipe-source';
+      sourceAttribution.append('Quelle: ');
+
+      if (source.url) {
+        const sourceLink = document.createElement('a');
+        sourceLink.href = source.url;
+        sourceLink.target = '_blank';
+        sourceLink.rel = 'noopener noreferrer';
+        sourceLink.textContent = source.name || source.url;
+        sourceAttribution.appendChild(sourceLink);
+      } else {
+        sourceAttribution.append(source.name || '');
+      }
+
+      stepsWrapper.appendChild(sourceAttribution);
     }
 
     // Add description if available

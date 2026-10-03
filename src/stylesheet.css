@@ -68,8 +68,10 @@ h1 { margin:22px 0 20px; font:900 clamp(56px,7vw,70px)/.98 Fraunces,Georgia,seri
 .step-number { width:47px; height:47px; display:grid; place-items:center; border:var(--line); background:var(--lime); border-radius:50%; font:700 14px "DM Mono",monospace; transform:rotate(random(-7deg, 6deg)); }
 .step p { margin:0; max-width:520px; font-size:16px; line-height:1.5; }
 .tip { margin-top:22px; padding:20px 21px; border:var(--line); background:var(--yellow); transform:rotate(1deg); }
-.tip strong { display:block; margin-bottom:7px; font:900 22px Fraunces,Georgia,serif; }
+.tip strong { display:block; margin-bottom:5px; font:900 18px Fraunces,Georgia,serif; }
 .tip p { margin:0; font-size:14px; line-height:1.45; }
+.recipe-source { margin:28px 0 0; padding-top:14px; border-top:1px dashed #c9c0ac; font:500 12px "DM Mono",monospace; }
+.recipe-source a { display:inline; color:var(--green); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:38px; padding:0 15px; border:var(--line); box-shadow:var(--shadow); background:var(--tomato); color:var(--cream); font:700 13px "DM Mono",monospace; text-decoration:none; text-transform:uppercase; letter-spacing:.04em; transition:transform .15s,box-shadow .15s; } .button:hover { transform:translate(3px,3px); box-shadow:2px 2px 0 var(--ink); }
 
 .source-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
