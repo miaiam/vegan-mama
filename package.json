@@ -7,7 +7,7 @@
     "dev": "node src/generate-index.ts && vite",
     "build": "node src/generate-index.ts && tsc && vite build",
     "preview": "vite preview",
-    "postbuild": "pagecrypt dist/index.html dist/encrypted.html vegan-mama"
+    "postbuild": "pagecrypt dist/index.html dist/index.html vegan-mama"
   },
   "devDependencies": {
     "@types/node": "^26.6.4",
